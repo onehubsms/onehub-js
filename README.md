@@ -1,5 +1,5 @@
 # Onehub Node JS Library
-```
+```Node JS
 import fetch from 'node-fetch';
 
 fetch('https://api.onehub.co.ke/v1/sms/send', {
