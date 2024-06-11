@@ -299,5 +299,387 @@ request(options, function (error, response, body) {
 `tags` - `[Type: String]`	`[Optional]` - A unique field to help group contacts e.g football,team,family.
 
 `groups` - `[Type: String]`	`[Optional]` - This is a group name that the contacts will be added to. It must be an existing group.
+# Onehub Node JS Create Group Library
+```Node js
+var request = require('request');
+
+// authentication
+var x_username       = ""
+var x_apikey         = ""
+
+// data
+var params = {
+    "name": "",
+    "tags": "",
+}
+
+// endpoint
+var addGroupURL     = "https://api.braceafrica.com/v1/contacts/groups/add";
+
+var headers = {
+    'Content-Type' :  'application/json',
+    'Content-Length' : params.length,
+    'Accept' : 'application/json',
+    'x-api-user' : x_username,
+    'x-api-key' : x_apikey
+}
+
+var options = {
+    url: addGroupURL,
+    method: 'POST',
+    headers: headers,
+    form: params
+}
+
+// the request and response
+request(options, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        // Print out the response body
+        console.log(body)
+    }
+    console.log(body)
+})
+```
+# Request Body Parameters
+`name` - `[Type: String]` `[Required]` - The group name.
+
+`tags` - `[Type: String]`	`[Optional]` - These are tags in the contacts you want to link. The group will be formed and the contacts automatically linked to the group.
+# Onehub Node JS Edit Group Library
+```Node js
+var request = require('request');
+
+// authentication
+var x_username       = ""
+var x_apikey         = ""
+
+// data
+var params = {
+    "name": "",
+}
+
+var groupId = ""
+
+// endpoint
+var editGroupURL     = "https://api.braceafrica.com/v1/contacts/groups/edit/" + groupId
+
+var headers = {
+    'Content-Type' :  'application/json',
+    'Content-Length' : params.length,
+    'Accept' : 'application/json',
+    'x-api-user' : x_username,
+    'x-api-key' : x_apikey
+}
+
+var options = {
+    url: editGroupURL,
+    method: 'POST',
+    headers: headers,
+    form: params
+}
+
+// the request and response
+request(options, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        // Print out the response body
+        console.log(body)
+    }
+    else{
+        console.log(error)
+    }
+})
+```
+# Request Body Parameters
+`name` - `[Type: String]` `[Required]` - The group name.
+
+`tags` - `[Type: String]`	`[Optional]` - These are tags in the contacts you want to link. The group will be formed and the contacts automatically linked to the group.
+# Response Body Parameters
+## Response in case of successful editing of a group:
+```json
+{
+    "status": 200,
+    "message": "Group has been updated"
+}
+```
+# Onehub Node JS Fetch Group Library
+```Node js
+var request             = require('request');
+
+// authentication
+var x_username          = ""
+var x_apikey            = ""
+
+// endpoint
+var fetchGroupsURL     = "https://api.braceafrica.com/v1/contacts/groups/fetch";
+
+var headers = {
+    'Content-Type' :  'application/json',
+    'Accept' : 'application/json',
+    'x-api-user' : x_username,
+    'x-api-key' : x_apikey
+}
+
+var options = {
+    url: fetchGroupsURL,
+    method: 'GET',
+    headers: headers
+}
+
+// the request and response
+request(options, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        // Print out the response body
+        console.log(body)
+    }
+    else{
+        console.log(error)
+    }
+})
+```
+# Request Body Parameters
+`name` - `[Type: String]` `[Required]` - The group name.
+
+`tags` - `[Type: String]`	`[Optional]` - These are tags in the contacts you want to link. The group will be formed and the contacts automatically linked to the group.
+# Response Body Parameters
+## Response in case of successful fetching of a group:
+```json
+{
+    "status": 200,
+    "groups": [
+        {
+            "groupId": 12,
+            "groupName": "Kenzu Safaris",
+            "createdOn": "2019-05-17T00:00:00.000Z",
+            "contacts": []
+        }
+    ]
+}
+```
+# Onehub Node JS Link Contacts To Group Library
+```Node js
+var request = require('request');
+
+// authentication
+var x_username       = ""
+var x_apikey         = ""
+
+// data
+var params = {
+    "contactIds": [1,2,3,4],
+}
+
+var groupId = ""
+
+// endpoint
+var addContactsToGroupURL     = "https://api.braceafrica.com/v1/contacts/add/" + groupId
+
+var headers = {
+    'Content-Type' :  'application/json',
+    'Content-Length' : params.length,
+    'Accept' : 'application/json',
+    'x-api-user' : x_username,
+    'x-api-key' : x_apikey
+}
+
+var options = {
+    url: addContactsToGroupURL,
+    method: 'POST',
+    headers: headers,
+    form: params
+}
+
+// the request and response
+request(options, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        // Print out the response body
+        console.log(body)
+    }
+    else{
+        console.log(error)
+    }
+})
+```
+# Request Body Parameters
+`name` - `[Type: String]` `[Required]` - The group name.
+
+`tags` - `[Type: String]`	`[Optional]` - These are tags in the contacts you want to link. The group will be formed and the contacts automatically linked to the group.
+# Response Body Parameters
+## Response in case of successful linking contacts to a group:
+```json
+{
+    "status": 200,
+    "message": "The contacts linked to group"
+}
+```
+# Onehub Node JS Fetch Group Contacts Library
+```Node js
+var request             = require('request');
+
+// authentication
+var x_username          = ""
+var x_apikey            = ""
+
+var groupId = ""
+
+// endpoint
+var fetchGroupContactsURL = "https://api.braceafrica.com/v1/contacts//groups/fetch/"+groupId
+
+var headers = {
+    'Content-Type' :  'application/json',
+    'Accept' : 'application/json',
+    'x-api-user' : x_username,
+    'x-api-key' : x_apikey
+}
+
+var options = {
+    url: fetchGroupContactsURL,
+    method: 'GET',
+    headers: headers
+}
+
+// the request and response
+request(options, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        // Print out the response body
+        console.log(body)
+    }
+    else{
+        console.log(error)
+    }
+})
+```
+# Request Body Parameters
+`name` - `[Type: String]` `[Required]` - The group name.
+
+`tags` - `[Type: String]`	`[Optional]` - These are tags in the contacts you want to link. The group will be formed and the contacts automatically linked to the group.
+# Response Body Parameters
+## Response in case of successful fetching group contacts:
+```json
+{
+    "groupId": 2536,
+    "groupName": "Chama Ya Mama",
+    "contacts": [
+        {
+            "id": 65,
+            "name": "John Doe",
+            "phoneNumber": "+2547xxx4578",
+            "tags": "chairman"
+        },
+        {
+            "id": 63,
+            "name": "Pendo JM",
+            "phoneNumber": "+2547xxy4597",
+            "tags": "member"
+        }
+    ]
+}
+```
+# Onehub Node JS Remove Group Contacts Library
+```Node js
+var request = require('request');
+
+// authentication
+var x_username       = ""
+var x_apikey         = ""
+
+// data
+var params = {
+    "contactIds": [1,2,3,4],
+}
+
+var groupId = ""
+
+// endpoint
+var deleteGroupContactsURL     = "https://api.braceafrica.com/v1/contacts/delete"+groupId
+
+var headers = {
+    'Content-Type' :  'application/json',
+    'Content-Length' : params.length,
+    'Accept' : 'application/json',
+    'x-api-user' : x_username,
+    'x-api-key' : x_apikey
+}
+
+var options = {
+    url: deleteGroupContactsURL,
+    method: 'POST',
+    headers: headers,
+    form: params
+}
+
+// the request and response
+request(options, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        // Print out the response body
+        console.log(body)
+    }
+    else{
+        console.log(error)
+    }
+})
+```
+# Request Body Parameters
+`name` - `[Type: String]` `[Required]` - The group name.
+
+`tags` - `[Type: String]`	`[Optional]` - These are tags in the contacts you want to link. The group will be formed and the contacts automatically linked to the group.
+# Response Body Parameters
+## Response in case of successful removing group contacts:
+```json
+{
+    "status": 200,
+    "message": "Contacts removed form group"
+}
+```
+# Onehub Node JS Delete Groups Library
+```Node js
+var request             = require('request');
+
+// authentication
+var x_username          = ""
+var x_apikey            = ""
+
+var params = {
+    "groupIds":[1,2,3,4]
+}
+
+// endpoint
+var deleteGroupURL = "https://api.braceafrica.com/v1/contacts/groups/delete"
+
+var headers = {
+    'Content-Type' :  'application/json',
+    'Accept' : 'application/json',
+    'x-api-user' : x_username,
+    'x-api-key' : x_apikey
+}
+
+var options = {
+    url: deleteGroupURL,
+    method: 'POST',
+    headers: headers,
+    form:params
+}
+
+// the request and response
+request(options, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        // Print out the response body
+        console.log(body)
+    }
+    else{
+        console.log(error)
+    }
+})
+```
+# Request Body Parameters
+`name` - `[Type: String]` `[Required]` - The group name.
+
+`tags` - `[Type: String]`	`[Optional]` - These are tags in the contacts you want to link. The group will be formed and the contacts automatically linked to the group.
+# Response Body Parameters
+## Response in case of successful deleting groups:
+```json
+{
+    "status": 200,
+    "message": "4 groups have been deleted"
+}
+```
 
 
