@@ -740,5 +740,119 @@ request(options, function (error, response, body) {
     ]
 }
 ```
+# Onehub Node JS Fetch Account Balance Library
+```Node js
+var request             = require('request');
+
+// authentication
+var x_username          = ""
+var x_apikey            = ""
+
+// endpoint
+var fetchBalanceURL = "https://api.braceafrica.com/v1/billing/balance"
+
+var headers = {
+    'Content-Type' :  'application/json',
+    'Accept' : 'application/json',
+    'x-api-user' : x_username,
+    'x-api-key' : x_apikey
+}
+
+var options = {
+    url: fetchBalanceURL,
+    method: 'GET',
+    headers: headers
+}
+
+// the request and response
+request(options, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        // Print out the response body
+        console.log(body)
+    }
+    else{
+        console.log(error)
+    }
+})
+```
+# Response Body Parameters
+## Response in case of successful fetching account balance:
+```json
+{
+    "status": 200,
+    "data": {
+        "amount": 6080.11,
+        "currency": "KES"
+    }
+}
+```
+# Onehub Node JS Fetch Account Statement Library
+```Node js
+var request             = require('request');
+
+// authentication
+var x_username          = ""
+var x_apikey            = ""
+
+// endpoint
+var fetchStatementURL = "https://api.braceafrica.com/v1/billing/topups"
+
+var headers = {
+    'Content-Type' :  'application/json',
+    'Accept' : 'application/json',
+    'x-api-user' : x_username,
+    'x-api-key' : x_apikey
+}
+
+var options = {
+    url: fetchStatementURL,
+    method: 'GET',
+    headers: headers
+}
+
+// the request and response
+request(options, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        // Print out the response body
+        console.log(body)
+    }
+    else{
+        console.log(error)
+    }
+})
+```
+# Response Body Parameters
+## Response in case of successful fetching account statement:
+```json
+{
+    "status": 200,
+    "data": [
+        {
+            "id": 4155,
+            "amount": "KES 500",
+            "description": "Mpesa Code ML689276",
+            "type": "MPESA",
+            "date_created": "2019-12-22T14:38:44.000Z",
+            "currency": "KES"
+        }
+        {
+            "id": 4338,
+            "amount": "KES 1100",
+            "description": "Mpesa Code MJUYEO67M",
+            "type": "MPESA",
+            "date_created": "2019-12-22T14:38:44.000Z",
+            "currency": "KES"
+        }
+        {
+            "id": 4598,
+            "amount": "KES 8000",
+            "description": "Admin Top Up",
+            "type": "Admin",
+            "date_created": "2019-12-22T14:38:44.000Z",
+            "currency": "KES"
+        }
+    ]
+}
+```
 
 
