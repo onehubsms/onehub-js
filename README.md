@@ -681,5 +681,64 @@ request(options, function (error, response, body) {
     "message": "4 groups have been deleted"
 }
 ```
+# Onehub Node JS Sender Ids Library
+```Node js
+var request             = require('request');
+
+// authentication
+var x_username          = ""
+var x_apikey            = ""
+
+// endpoint
+var fetchSenderidsURL = "https://api.braceafrica.com/v1/sms/senderIds/fetch"
+
+var headers = {
+    'Content-Type' :  'application/json',
+    'Accept' : 'application/json',
+    'x-api-user' : x_username,
+    'x-api-key' : x_apikey
+}
+
+var options = {
+    url: fetchSenderidsURL,
+    method: 'GET',
+    headers: headers
+}
+
+// the request and response
+request(options, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        // Print out the response body
+        console.log(body)
+    }
+    else{
+        console.log(error)
+    }
+})
+```
+# Response Body Parameters
+## Response in case of successful fetching of Sender Ids:
+```json
+{
+    "status": 200,
+    "senderids": [
+        {
+            "sender_id": "BraceAfrica",
+            "country": "Kenya",
+            "status": "active"
+        },
+        {
+            "sender_id": "JubaPay",
+            "country": "Kenya",
+            "status": "active"
+        },
+        {
+            "sender_id": "Foleni",
+            "country": "Uganda",
+            "status": "active"
+        }
+    ]
+}
+```
 
 
