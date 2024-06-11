@@ -81,7 +81,7 @@ var params = {
 }
 
 // endpoint
-var addContactURL     = "https://api.braceafrica.com/v1/contacts/add";
+var addContactURL     = "https://api.onehub.co.ke/v1/contacts/add";
 
 var headers = {
     'Content-Type' :  'application/json',
@@ -143,7 +143,7 @@ var params = {
 var contactId         = "1";
 
 // endpoint
-var editContactURL    = "https://api.braceafrica.com/v1/contacts/edit/" + contactId;
+var editContactURL    = "https://api.onehub.co.ke/v1/contacts/edit/" + contactId;
 
 
 var headers = {
@@ -195,7 +195,7 @@ var x_username          = ""
 var x_apikey            = ""
 
 // endpoint
-var fetchContactURL     = "https://api.braceafrica.com/v1/contacts/fetch";
+var fetchContactURL     = "https://api.onehub.co.ke/v1/contacts/fetch";
 
 var headers = {
     'Content-Type' :  'application/json',
@@ -259,7 +259,7 @@ var params = {
 }
 
 // endpoint
-var deleteContactURL    = "https://api.braceafrica.com/v1/contacts/delete";
+var deleteContactURL    = "https://api.onehub.co.ke/v1/contacts/delete";
 
 var headers = {
     'Content-Type' :  'application/json',
@@ -314,7 +314,7 @@ var params = {
 }
 
 // endpoint
-var addGroupURL     = "https://api.braceafrica.com/v1/contacts/groups/add";
+var addGroupURL     = "https://api.onehub.co.ke/v1/contacts/groups/add";
 
 var headers = {
     'Content-Type' :  'application/json',
@@ -360,7 +360,7 @@ var params = {
 var groupId = ""
 
 // endpoint
-var editGroupURL     = "https://api.braceafrica.com/v1/contacts/groups/edit/" + groupId
+var editGroupURL     = "https:/api.onehub.co.ke/v1/contacts/groups/edit/" + groupId
 
 var headers = {
     'Content-Type' :  'application/json',
@@ -409,7 +409,7 @@ var x_username          = ""
 var x_apikey            = ""
 
 // endpoint
-var fetchGroupsURL     = "https://api.braceafrica.com/v1/contacts/groups/fetch";
+var fetchGroupsURL     = "https://api.onehub.co.ke/v1/contacts/groups/fetch";
 
 var headers = {
     'Content-Type' :  'application/json',
@@ -470,7 +470,7 @@ var params = {
 var groupId = ""
 
 // endpoint
-var addContactsToGroupURL     = "https://api.braceafrica.com/v1/contacts/add/" + groupId
+var addContactsToGroupURL     = "https://api.onehub.co.ke/v1/contacts/add/" + groupId
 
 var headers = {
     'Content-Type' :  'application/json',
@@ -521,7 +521,7 @@ var x_apikey            = ""
 var groupId = ""
 
 // endpoint
-var fetchGroupContactsURL = "https://api.braceafrica.com/v1/contacts//groups/fetch/"+groupId
+var fetchGroupContactsURL = "https://api.onehub.co.ke/v1/contacts//groups/fetch/"+groupId
 
 var headers = {
     'Content-Type' :  'application/json',
@@ -589,7 +589,7 @@ var params = {
 var groupId = ""
 
 // endpoint
-var deleteGroupContactsURL     = "https://api.braceafrica.com/v1/contacts/delete"+groupId
+var deleteGroupContactsURL     = "https://api.onehub.co.ke/v1/contacts/delete"+groupId
 
 var headers = {
     'Content-Type' :  'application/json',
@@ -642,7 +642,7 @@ var params = {
 }
 
 // endpoint
-var deleteGroupURL = "https://api.braceafrica.com/v1/contacts/groups/delete"
+var deleteGroupURL = "https://api.onehub.co.ke/v1/contacts/groups/delete"
 
 var headers = {
     'Content-Type' :  'application/json',
@@ -690,7 +690,7 @@ var x_username          = ""
 var x_apikey            = ""
 
 // endpoint
-var fetchSenderidsURL = "https://api.braceafrica.com/v1/sms/senderIds/fetch"
+var fetchSenderidsURL = "https://api.onehub.co.ke/v1/sms/senderIds/fetch"
 
 var headers = {
     'Content-Type' :  'application/json',
@@ -749,7 +749,7 @@ var x_username          = ""
 var x_apikey            = ""
 
 // endpoint
-var fetchBalanceURL = "https://api.braceafrica.com/v1/billing/balance"
+var fetchBalanceURL = "https://api.onehub.co.ke/v1/billing/balance"
 
 var headers = {
     'Content-Type' :  'application/json',
@@ -795,7 +795,7 @@ var x_username          = ""
 var x_apikey            = ""
 
 // endpoint
-var fetchStatementURL = "https://api.braceafrica.com/v1/billing/topups"
+var fetchStatementURL = "https://api.onehub.co.ke/v1/billing/topups"
 
 var headers = {
     'Content-Type' :  'application/json',
